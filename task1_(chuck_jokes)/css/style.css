@@ -1,0 +1,12 @@
+#joke{
+	margin: 50px 350px 0px 50px; 
+	border-radius: 20px; 
+	border: 4px double black; 
+}
+
+#btn{
+	margin: 12px;
+	color: white;
+	border-radius: 5px;
+	background: green;
+}
