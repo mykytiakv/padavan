@@ -4,47 +4,34 @@ window.onload = function(){
 	request.open('GET', requestURL);
 	request.responseType = 'json';
 	request.send();
+	var menu = document.getElementById("navbar");
 	request.onload = function() {
-  	document.querySelector('#cat1').innerHTML = request.response[0];
-		document.querySelector('#cat2').innerHTML = request.response[1];
-		document.querySelector('#cat3').innerHTML = request.response[2];
-		document.querySelector('#cat4').innerHTML = request.response[3];
+  	var categoryJson = request.response;
+	  showCategory(categoryJson);
 	}
-	document.querySelector('#cat1').onclick = function(){
-		var selectedCategory = request.response[0];
-		ajaxGet();
+
+	function showCategory(categoryJson){
+		categoryJson.forEach(function(element, index, array){
+			var btn = document.createElement("BUTTON");        
+			var text = document.createTextNode(element);  
+			btn.appendChild(text);                               
+			var style = btn.style;
+			style.margin = "12px";
+			style.color = "white";
+			style.borderRadius = "5px";
+			style.background = "green";
+			menu.appendChild(btn);
+				btn.onclick = function(){
+					var requestURL = "https://api.chucknorris.io/jokes/random?category=" + element;
+					console.log(requestURL);
+				ajaxGet(requestURL);
 	}
-	document.querySelector('#cat2').onclick = function(){
-		var selectedCategory = request.response[1];
-		ajaxGet();
-	}
-	document.querySelector('#cat3').onclick = function(){
-		var selectedCategory = request.response[2];
-		ajaxGet();
-	}
-	document.querySelector('#cat4').onclick = function(){
-		var selectedCategory = request.response[3];
-		ajaxGet();
-	}
-	document.querySelector('#search').onclick = function(){
-		search();
+	});
 	}
 }
 
-function ajaxGet(selectedCategory){
+function ajaxGet(requestURL){
 	var request = new XMLHttpRequest();
-	if (selectedCategory == request.response[0]){
-		var requestURL = 'https://api.chucknorris.io/jokes/random?category=explicit';
-	}
-	else if (selectedCategory == request.response[1]){
-		var requestURL = 'https://api.chucknorris.io/jokes/random?category=dev';
-	}
-	else if (selectedCategory == request.response[2]){
-		var requestURL = 'https://api.chucknorris.io/jokes/random?category=movie';
-	}
-	else if (selectedCategory == request.response[3]){
-		var requestURL = 'https://api.chucknorris.io/jokes/random?category=food';
-	}
 
 	request.open('GET', requestURL);
 
@@ -64,14 +51,3 @@ function ajaxGet(selectedCategory){
   document.querySelector('#value').innerHTML = '"VALUE": ' + jsonObj['value'];
 	}
 }
-
-// function search(){
-// 	$(document).ready(function(){
-//   $("#myInput").on("keyup", function() {
-//     var value = $(this).val().toLowerCase();
-//     $("#joke *").filter(function() {
-//       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-//     });
-//   });
-// });
-// }
