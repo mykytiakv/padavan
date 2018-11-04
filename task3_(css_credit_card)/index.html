@@ -24,7 +24,7 @@
         </div>
         <div class="card-expire text" id="card-expire">Expires <span id="date"> **</span>/<span id="year">**</span></div>
         <div class="card-holder" id="card-holder">***** *****</div>
-        <div class="card-type text"><span id="cvv">CVV <span id="cvvCode">*** </span></span><span id="imgCard"><img src="img/mastercard.png" height="35" id="mastercard"><img src="img/visa.png" height="35" id="visa"</span></div>
+        <div class="card-type text"><span id="cvv">CVV <span id="cvvCode">*** </span></span><span id="imgCard"><img src="img/mastercard.png" height="35" id="mastercard"><img src="img/visa.png" height="35" id="visa"</span><!-- <button>></button> --></div>
       </div>
     </div>
     <div class="sleeve2">
@@ -159,8 +159,8 @@ $('#cardCVVInput').on('input', function() {
   document.getElementById('card-holder').style.display = 'none';
   document.getElementById('cvv').style.display = 'inline';
   document.getElementById('imgCard').style.display = 'none';
-  // var card = document.getElementById('Rotate'); 
-  // card.style.transform.rotate(180);
+  document.getElementById('Rotate').style.transform = "rotateY(180deg)";
+  document.getElementById('Rotate').style.transition  = "all 1.5s";
   var number = document.getElementById('cardCVVInput').value;
   if (number.match(/[а-я,А-я,a-z,A-z]/g)){
     alert("Введіть будь ласка тільки цифри");
@@ -174,7 +174,6 @@ $('#cardCVVInput').on('input', function() {
 function validateNumber(){
   var number1 = document.getElementById('cardNumberInput1');
   if (number1.value.length < 4){
-    alert("Введіть будь ласка достатню кількість цифр");
     $('#cardNumberInput1').val('');
     $('#cardNumber1').html('****');
   }
@@ -182,7 +181,6 @@ function validateNumber(){
 function validateNumber2(){
   var number1 = document.getElementById('cardNumberInput2');
   if (number1.value.length < 4){
-    alert("Введіть будь ласка достатню кількість цифр");
     $('#cardNumberInput2').val('');
     $('#cardNumber2').html('****');
   }
@@ -190,7 +188,6 @@ function validateNumber2(){
 function validateNumber3(){
   var number1 = document.getElementById('cardNumberInput3');
   if (number1.value.length < 4){
-    alert("Введіть будь ласка достатню кількість цифр");
     $('#cardNumberInput3').val('');
     $('#cardNumber3').html('****');
   }
@@ -198,7 +195,6 @@ function validateNumber3(){
 function validateNumber4(){
   var number1 = document.getElementById('cardNumberInput4');
   if (number1.value.length < 4){
-    alert("Введіть будь ласка достатню кількість цифр");
     $('#cardNumberInput4').val('');
     $('#cardNumber4').html('****');
   }
@@ -213,13 +209,19 @@ function validateOwner(){
 }
 function validateCVV(){
   var owner = document.getElementById('cardCVVInput');
+    document.getElementById('Rotate').style.transform = "rotateY(360deg)";
+  document.getElementById('Rotate').style.transition  = "all 1.5s";
+  document.getElementById('card-number').style.display = 'flex';
+  document.getElementById('card-expire').style.display = 'flex';
+  document.getElementById('card-holder').style.display = 'flex';
+  document.getElementById('cvv').style.display = 'none';
+  document.getElementById('imgCard').style.display = 'inline';
+
   if (owner.value.length < 3){
     alert("Введіть будь ласка достатню кількість цифр");
     $('#cardCVVInput').val('');
     $('#cvvCode').html('***');
-
   }
-
 }
 </script>
   </body>
