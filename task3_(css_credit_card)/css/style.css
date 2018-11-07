@@ -11,31 +11,19 @@ html, body {
 #visa, #mastercard, #cvv{
 	display: none;
 }
-.inputCard{
-	display: block;
-  width: 65px;
-  height: calc(2.25rem + 2px);
-  padding: .375rem .75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #495057;
-  background-color: #fff;
-  border: 1px solid #ced4da;
-  border-radius: .25rem;
-  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out
+#cvv{
+	transform: scaleX(-1);
 }
-
+/*#cardCVVInput:focus{
+	background: #3B3;
+}*/
 .container {
   display: flex;
   align-items: center;
   height: 100%;
-  
+
 }
 
-.rotate:hover{
-	transform: rotateY(180deg);
-	transition: transform 1.5s;
-}
 .sleeve {
   flex: 1 1 0;
   margin: auto;
@@ -97,6 +85,7 @@ html, body {
   color: #FB0;
   text-align: left;
   margin: 15px 0;
+
 }
 
 .card-number, .card-expire, .card-holder {
@@ -109,6 +98,7 @@ html, body {
   text-shadow: 0 1px 1px rgba(0,0,0,.5);
   .digit-group {
     margin: 5px;
+
   }
 }
 
@@ -131,6 +121,7 @@ html, body {
 .card-type {
   margin-top: auto;
   font-size: 14px;
+
 }
 
 .line{
