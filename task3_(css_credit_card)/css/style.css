@@ -10,6 +10,7 @@ html, body {
 }
 #visa, #mastercard, #cvv{
 	display: none;
+	padding-top: -5px;
 }
 #cvv{
 	transform: scaleX(-1);
@@ -90,7 +91,7 @@ html, body {
 
 .card-number, .card-expire, .card-holder {
   display: flex;
-  margin: 5px;
+  margin: 4px 0px 0px 4px;
   justify-content: center;
   font-family: monospace;
   font-size: 24px;
