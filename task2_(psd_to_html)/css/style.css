@@ -1,0 +1,30 @@
+html,body,header, #intro{
+	height: 100%;
+}
+#intro{
+	background: url(../img/header.png);
+	background-size: cover;
+}
+.imgSize{
+	max-width: 100%;
+	height: auto;
+}
+.box {
+	 padding-top: 60px;
+   display: flex;
+   align-content: top;
+   align-items:start;
+}
+#offer{
+	height: 285px;
+	width: 100%;
+	background-color: #534753;
+}
+#offer2{
+	height: 285px;
+	width: 100%;
+	background-color: #ffffff;
+}
+#response{
+	background-color: #dddadd;
+}
